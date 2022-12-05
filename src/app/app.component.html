@@ -1,0 +1,21 @@
+<div class="container text-center my-3">
+    <h1>Totale album preferiti {{ conteggio }}</h1>
+</div>
+
+<!-- Spinner -->
+<div class="container d-flex justify-content-center mt-3">
+    <div class="spinner-border d-flex justify-content-center" role="status" *ngIf="loading">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div class="container d-flex flex-wrap justify-content-center">
+    <div class="card m-3 w-25" *ngFor="let card of cards">
+        <img src="{{ card.thumbnailUrl }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ card.title }}</h5>
+            <button type="button" class="btn btn-danger m-3" (click)="cancellaCard(card.id)">Elimina</button>
+            <button type="button" class="btn btn-success m-3" (click)="miPiace()">Mi piace</button>
+        </div>
+    </div>
+</div>
